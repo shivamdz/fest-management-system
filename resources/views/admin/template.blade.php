@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
-	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}">
+	<!-- <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}"> -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>ADMIN PORTAL</title>
@@ -51,6 +51,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+								<li>
+										<a href="festsetup.html">
+												<i class="ti-pie-chart"></i>
+												<p>FEST SETUP</p>
+										</a>
+								</li>
 
             </ul>
     	</div>
