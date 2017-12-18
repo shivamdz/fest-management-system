@@ -13,18 +13,18 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="{{asset('css/animate.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('admin/css/animate.min.css')}}" rel="stylesheet"/>
 
     <!--  Paper Dashboard core CSS    -->
-    <link href="{{asset('css/paper-dashboard.css')}}" rel="stylesheet"/>
+    <link href="{{asset('admin/css/paper-dashboard.css')}}" rel="stylesheet"/>
 
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="{{asset('css/themify-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/css/themify-icons.css')}}" rel="stylesheet">
 
 </head>
 <body>
@@ -144,8 +144,8 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="{{asset('js/jquery-1.10.2.js')}}" type="text/javascript"></script>
-	<script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('admin/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
+	<script src="{{asset('admin/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<!-- <script src="{{asset('js/bootstrap-checkbox-radio.js')}}"></script> -->
@@ -160,7 +160,7 @@
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
 
     <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="{{asset('js/paper-dashboard.js')}}"></script>
+	<script src="{{asset('admin/js/paper-dashboard.js')}}"></script>
 
 
 </html>
