@@ -13,14 +13,16 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        
+        if(!Schema::hasTable('events')){
+            Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('EventId')->nullable();
+            $table->string('EventId');
             $table->string('EventName');
             $table->string('EventDesc');
-            $table->string('EventDate')->nullable();
-            $table->string('EventStartTime')->nullable();
-            $table->string('EventEndTime')->nullable();
+            $table->date('EventDate')->nullable();
+            $table->time('EventStartTime')->nullable();
+            $table->time('EventEndTime')->nullable();
             $table->string('EventVenue')->nullable();
             $table->string('Rules')->nullable();
             $table->integer('MaxTeam')->nullable();
@@ -28,7 +30,8 @@ class CreateEventsTable extends Migration
             $table->string('Pass')->nullable();
             $table->string('Path')->nullable();
             $table->timestamps();
-        });
+            $table->engine = 'InnoDB';
+        });}
     }
 
     /**
