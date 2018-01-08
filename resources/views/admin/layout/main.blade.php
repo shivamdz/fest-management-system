@@ -6,25 +6,31 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}"> -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+
+	<!-- Bootstrap core CSS     -->
+	<link href="{{asset('admin-assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+
+	<!-- Animation library for notifications   -->
+	<link href="{{asset('admin-assets/css/animate.min.css')}}" rel="stylesheet"/>
+
+	<!--  Paper Dashboard core CSS    -->
+	<link href="{{asset('admin-assets/css/paper-dashboard.css')}}" rel="stylesheet"/>
+
+	<!--  Fonts and icons     -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+	<link href="{{asset('admin-assets/css/themify-icons.css')}}" rel="stylesheet">
+
+	<link href="{{asset('admin-assets/css/demo.css')}}" rel="stylesheet" />
+
+
+
+
+
 	<title>ADMIN PORTAL</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-
-    <!-- Bootstrap core CSS     -->
-    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
-    <link href="{{asset('admin/css/animate.min.css')}}" rel="stylesheet"/>
-
-    <!--  Paper Dashboard core CSS    -->
-    <link href="{{asset('admin/css/paper-dashboard.css')}}" rel="stylesheet"/>
-
-    <!--  Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="{{asset('admin/css/themify-icons.css')}}" rel="stylesheet">
 
 </head>
 <body>
@@ -38,29 +44,46 @@
 	-->
 
     	<div class="sidebar-wrapper">
-            <div class="logo">
+          <div class="logo">
                 <a class="simple-text">
                   ADMIN PANEL
                 </a>
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="dashboard.html">
+                <li {{{ (Request::is('admin') ? 'class=active' : '') }}} {{{ (Request::is('admin/dashboard') ? 'class=active' : '') }}} >
+                    <a href="{{{url('/admin/dashboard')}}}">
                         <i class="ti-pie-chart"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-								<li>
-										<a href="festsetup.html">
+								<li {{{ (Request::is('admin/festsetup') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/festsetup')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>FEST SETUP</p>
 										</a>
 								</li>
-
+                <li {{{ (Request::is('admin/event') ? 'class=active' : '') }}} {{{ (Request::is('admin/event/*') ? 'class=active' : '') }}} >
+										<a href="{{{url('/admin/event')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>EVENTS</p>
+										</a>
+								</li>
+                <li {{{ (Request::is('admin/eventHead') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/eventHead')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>EVENT HEAD</p>
+										</a>
+								</li>
+                <li {{{ (Request::is('admin/college') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/college')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>COLLEGES</p>
+										</a>
+								</li>
             </ul>
     	</div>
-    </div>
+ </div>
 
     <div class="main-panel">
 		<nav class="navbar navbar-default">
@@ -72,7 +95,7 @@
                         <span class="icon-bar bar2"></span>
                         <span class="icon-bar bar3"></span>
                     </button>
-                    <!-- <a class="navbar-brand" href="#">ADMIN</a> -->
+                    <a class="navbar-brand">@yield('heading')</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -97,7 +120,10 @@
                                 <li><a href="#">Another notification</a></li>
                               </ul>
                         </li> -->
-						<li>
+                      						<li>
+
+
+
                             <a href="#">
 								<i class="ti-arrow-circle-right"></i>
 								<p>Logout</p>
@@ -114,11 +140,13 @@
             <div class="container-fluid">
                 <div class="row">
 
+                @yield('content')
+
                 </div>
             </div>
         </div>
 
-
+</div>
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -137,30 +165,36 @@
             </div>
         </footer>
 
-    </div>
-</div>
 
+</div>
 
 </body>
 
-    <!--   Core JS Files   -->
-    <script src="{{asset('admin/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
-	<script src="{{asset('admin/js/bootstrap.min.js')}}" type="text/javascript"></script>
+        <!--   Core JS Files   -->
+      <script src="{{asset('admin-assets/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
+    	<script src="{{asset('admin-assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
-	<!--  Checkbox, Radio & Switch Plugins -->
-	<!-- <script src="{{asset('js/bootstrap-checkbox-radio.js')}}"></script> -->
+    	<!--  Checkbox, Radio & Switch Plugins -->
+    	<script src="{{asset('js/bootstrap-checkbox-radio.js')}}"></script>
 
-	<!--  Charts Plugin -->
-	<!-- <script src="{{asset('js/chartist.min.js')}}"></script> -->
+    	<!--  Charts Plugin -->
+			<script src="{{asset('js/chartist.min.js')}}"></script>
 
-    <!--  Notifications Plugin    -->
-    <!-- <script src="{{asset('js/bootstrap-notify.js')}}"></script> -->
+         <!-- Notifications Plugin    -->
+        <script src="{{asset('js/bootstrap-notify.js')}}"></script>
 
-    <!--  Google Maps Plugin    -->
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+        <!--  Google Maps Plugin    -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-	<script src="{{asset('admin/js/paper-dashboard.js')}}"></script>
+        <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+    	<script src="{{asset('admin-assets/js/paper-dashboard.js')}}"></script>
+
+			<script src="{{asset('admin-assets/js/demo.js')}}"></script>
+
+
+
+
+@yield('notificationpopup');
 
 
 </html>
