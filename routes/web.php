@@ -11,9 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
 });
-Route::get('/admin',function() {
-  return view ('/admin/template');
+
+Route::get('/admin/dashboard',function() {
+  return view ('admin.dashboard');
+});
+
+Route::get('/admin/festsetup', function () {
+    return view('admin.festsetup');
+});
+
+// Route::get('/admin/event', function () {
+//     return view('admin.event.index');
+// });
+
+Route::resource('/admin/event','EventController');
+
+Route::get('/admin/eventHead', function () {
+    return view('admin.eventHead');
+});
+
+Route::get('/admin/college', function () {
+    return view('admin.college');
 });
