@@ -6,14 +6,6 @@
 
 @section('content')
 
-<style>
-#labelhcolor {
-color: #595959;
-}
-#labeltcolor {
-font-style:italic;
-}
-</style>
 
 
 <!-- <div class="col-lg-12">

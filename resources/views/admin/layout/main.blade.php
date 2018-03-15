@@ -5,6 +5,7 @@
 	<!-- <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('img/favicon.png')}}"> -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
 	<!-- Bootstrap core CSS     -->
@@ -16,6 +17,8 @@
 	<!--  Paper Dashboard core CSS    -->
 	<link href="{{asset('admin-assets/css/paper-dashboard.css')}}" rel="stylesheet"/>
 
+  <link href="{{asset('admin-assets/datetime/css/bootstrap-datepicker.css')}}" rel="stylesheet"/>
+
 	<!--  Fonts and icons     -->
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
@@ -23,6 +26,14 @@
 
 	<link href="{{asset('admin-assets/css/demo.css')}}" rel="stylesheet" />
 
+	<style>
+	#labelhcolor {
+	color: #595959;
+	}
+	#labeltcolor {
+	font-style:italic;
+	}
+	</style>
 
 
 
@@ -57,7 +68,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-								<li {{{ (Request::is('admin/festsetup') ? 'class=active' : '') }}}>
+								<li {{{ (Request::is('admin/festsetup') ? 'class=active' : '') }}}  {{{ (Request::is('admin/festsetup/*') ? 'class=active' : '') }}}>
 										<a href="{{{url('/admin/festsetup')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>FEST SETUP</p>
@@ -69,13 +80,13 @@
 												<p>EVENTS</p>
 										</a>
 								</li>
-                <li {{{ (Request::is('admin/eventHead') ? 'class=active' : '') }}}>
-										<a href="{{{url('/admin/eventHead')}}}">
+                <li {{{ (Request::is('admin/eventhead') ? 'class=active' : '') }}}  {{{ (Request::is('admin/eventhead/*') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/eventhead')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>EVENT HEAD</p>
 										</a>
 								</li>
-                <li {{{ (Request::is('admin/college') ? 'class=active' : '') }}}>
+                <li {{{ (Request::is('admin/college') ? 'class=active' : '') }}}  {{{ (Request::is('admin/college/*') ? 'class=active' : '') }}}>
 										<a href="{{{url('/admin/college')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>COLLEGES</p>
@@ -190,7 +201,15 @@
     	<script src="{{asset('admin-assets/js/paper-dashboard.js')}}"></script>
 
 			<script src="{{asset('admin-assets/js/demo.js')}}"></script>
+			<script src="{{asset('admin-assets/datetime/js/bootstrap-datepicker.js')}}"></script>
 
+      <script>
+			$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+			</script>
 
 
 
