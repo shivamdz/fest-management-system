@@ -19,20 +19,60 @@ Route::get('/admin/dashboard',function() {
   return view ('admin.dashboard');
 });
 
-Route::get('/admin/festsetup', function () {
-    return view('admin.festsetup');
+// Route::get('/fest',function() {
+//   return view ('parti.index');
+// });
+//
+Route::post('/fest/events/finalize',function() {
+  return view ('parti.temp');
 });
 
-// Route::get('/admin/event', function () {
-//     return view('admin.event.index');
+Route::get('/fest','RegController@index');
+
+// Route::get('/fest/events','RegController@index');
+Route::post('/fest/college','RegController@getCount');
+Route::get('/fest/college','RegController@getCount');
+Route::post('/fest/events','RegController@getEventList');
+
+// Route::get('/fest/events','RegController@getEventList');
+Route::post('/fest/final','RegController@store');
+// Route::get('/fest/final',function() {
+//   return view ('parti.final');
+// });
+
+// Route::get('/fest/events','RegController@store');
+
+// Route::post('/fest/events/finalize');
+// Route::post('/fest/eve/getData','RegController@getData');
+// Route::resource('/fest/college','RegController');
+// Route::post('/fest/events',function() {
+//   return view ('parti.events');
+// });
+
+// Route::get('/fest/events/getEventList','RegController@get');
+
+// Route::get('/fest/college',function() {
+//   return view ('parti.college');
+// });
+
+// Route::get('/admin/festsetup/index', function () {
+//     return view('admin.festsetup');
+// });
+//
+// Route::get('/admin/event/index', function () {
+//     return view('admin.event');
 // });
 
 Route::resource('/admin/event','EventController');
+Route::resource('/admin/festsetup','FestController');
+Route::resource('/admin/eventhead','EventHeadController');
+Route::resource('/admin/college','CollegeController');
 
-Route::get('/admin/eventHead', function () {
-    return view('admin.eventHead');
-});
 
-Route::get('/admin/college', function () {
-    return view('admin.college');
-});
+// Route::get('/admin/eventHead/index', function () {
+//     return view('admin.eventHead');
+// });
+
+// Route::get('/admin/college', function () {
+//     return view('admin.college');
+// });
