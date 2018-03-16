@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Admin\event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Session;
 
 
@@ -88,6 +89,14 @@ class EventController extends Controller
         ]);
 
         $event->save();
+
+        Schema::create('EVT'.$lastId, function($table){
+        $table->integer('PartiId');
+        $table->integer('Result')->nullable();
+        $table->integer('TeamId');
+        $table->boolean('IsPresent')->nullable();
+        $table->foreign('PartiId')->references('id')->on('participants');
+      });
 
         Session::flash('success_msg','Event Added Successfully');
 
@@ -174,7 +183,9 @@ class EventController extends Controller
     public function destroy($id)
     {
         // echo '<script>alert("$eventData")</script>';
-        $event = event::find($id)->delete();
+        $event = event::find($id);
+        DB::statement('drop table '.$event->EventName);
+        $event->delete();
 
         Session::flash('success_msg','Event Deleted Successfully');
         return redirect('/admin/event');
