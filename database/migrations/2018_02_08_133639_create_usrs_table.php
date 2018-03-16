@@ -18,6 +18,7 @@ class CreateUsrsTable extends Migration
             $table->string('UserName');
             $table->string('Password');
             $table->string('Session')->nullable();
+
             $table->timestamps();
         });
 

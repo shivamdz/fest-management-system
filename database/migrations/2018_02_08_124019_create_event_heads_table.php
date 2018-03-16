@@ -13,7 +13,7 @@ class CreateEventHeadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_heads', function (Blueprint $table) {
+        Schema::create('event_heads',function (Blueprint $table) {
             $table->increments('id');
             $table->string('HeadId');
             $table->string('HeadName');

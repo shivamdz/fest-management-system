@@ -14,7 +14,7 @@
       <div class="col-lg-12 col-md-12">
                      <div class="card">
                          <div class="header">
-                             <center><h3 class="title"><b>Add New Event</b></h3></center>
+                           <center><h3 class="title"><b>Add New Event</b></h3></center>
                          </div>
                          <div class="content">
                              <form>
@@ -32,7 +32,6 @@
                                            </div>
                                      </div>
                                  </div>
-
                                  <div class="row">
                                      <div class="col-md-12">
                                          <div class="form-group">
@@ -62,19 +61,19 @@
                                      <div class="col-md-4">
                                          <div class="form-group">
                                              <label>Event Date</label>
-                                             <input type="date" name="EventDate" class="form-control border-input" placeholder="Event Date" value="">
+                                             <input type="date" name="EventDate" class="form-control border-input" placeholder="yyyy/mm/dd" value="">
                                          </div>
                                      </div>
                                      <div class="col-md-4">
                                          <div class="form-group">
                                              <label>Event Start Time</label>
-                                         <input type="datetime" name="EventStartTime" class="form-control border-input" placeholder="Start Time" value="">
+                                         <input type="time" name="EventStartTime" class="form-control border-input" placeholder="hh:mm:ss" value="">
                                        </div>
                                      </div>
                                      <div class="col-md-4">
                                          <div class="form-group">
                                              <label>Event End Time</label>
-                                             <input type="datetime" name="EventEndTime" class="form-control border-input" placeholder="End time" value="">
+                                             <input type="time" name="EventEndTime" class="form-control border-input" placeholder="hh:mm:ss" value="">
                                          </div>
                                      </div>
                                  </div>
@@ -91,8 +90,8 @@
                                     <label>Event Logo/Image</label>
                                     <input type="file" name="image" class="form-control border-input" placeholder="Upload Event logo here" accept="image/*" value="">
                                     </div>
-                                </div>
-                              </div>
+                                  </div>
+                                 </div>
                                  <div class="row">
                                      <div class="col-md-12">
                                          <div class="form-group">

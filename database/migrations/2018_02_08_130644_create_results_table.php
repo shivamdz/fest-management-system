@@ -19,6 +19,7 @@ class CreateResultsTable extends Migration
         });
 
         Schema::table('results', function (Blueprint $table) {
+
         $table->integer('Col_id')->unsigned();
         $table->foreign('Col_id')->references('id')->on('colleges');
         });

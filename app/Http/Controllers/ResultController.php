@@ -25,4 +25,9 @@ class ResultController extends Controller
         $preg = \DB::table($result[0]['EventId'])->select('TeamId', 'Parti_id','Result')->whereNotNull('Result')->orderBy('Result')->get();
         return view('results.eventresults.show',compact('result','preg'));
     }
+
+    public function indexoverall()
+    {
+        
+    }
 }
