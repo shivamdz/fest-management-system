@@ -67,12 +67,3 @@ Route::resource('/admin/event','EventController');
 Route::resource('/admin/festsetup','FestController');
 Route::resource('/admin/eventhead','EventHeadController');
 Route::resource('/admin/college','CollegeController');
-
-
-// Route::get('/admin/eventHead/index', function () {
-//     return view('admin.eventHead');
-// });
-
-// Route::get('/admin/college', function () {
-//     return view('admin.college');
-// });
