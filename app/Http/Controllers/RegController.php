@@ -236,7 +236,7 @@ class RegController extends Controller
        {
 
          $cTeam = \DB::table($list->EventId)
-                   ->join('participants',$list->EventId.'.PartiId', '=' ,'participants.id')
+                   ->join('participants',$list->EventId.'.Parti_id', '=' ,'participants.id')
                    ->where('participants.Col_id','=',$id)
                    ->distinct('TeamId')->count('TeamId');
 
@@ -329,7 +329,7 @@ class RegController extends Controller
         }
 
         $parti = new \App\Admin\participants([
-          'PartiId' => 'P'.$lastId,
+          'Parti_id' => 'P'.$lastId,
           'PartiName' => $names[$i],
           'PartiNo' => $contacts[$i],
           'PartiEmail' => $emails[$i],
@@ -372,13 +372,13 @@ class RegController extends Controller
        {
 
          $cTeam = \DB::table($list->EventId)
-                   ->join('participants',$list->EventId.'.PartiId', '=' ,'participants.id')
+                   ->join('participants',$list->EventId.'.Parti_id', '=' ,'participants.id')
                    ->where('participants.Col_id','=',$id)
                    ->distinct('TeamId')->count('TeamId');
 
                           // ->orderBy($list->EventId.'.TeamId','desc')
 // ->select($list->EventId.'.TeamId')
-  //  SELECT EVT3.TeamId FROM EVT3 INNER JOIN participants ON EVT3.PartiId=participants.id WHERE participants.Col_id = 1 ORDER BY EVT3.TeamId DESC
+  //  SELECT EVT3.TeamId FROM EVT3 INNER JOIN participants ON EVT3.Parti_id=participants.id WHERE participants.Col_id = 1 ORDER BY EVT3.TeamId DESC
 
 
              for($j = 1; $j <= $MParti ; $j++)
@@ -392,7 +392,7 @@ class RegController extends Controller
                     $tempid = $idd[$tempid];
 
                     \DB::table($list->EventId)->insert(
-                      ['PartiId' => $tempid , 'TeamId' => $cTeam+1]
+                      ['Parti_id' => $tempid , 'TeamId' => $cTeam+1]
                     );
 
                }

@@ -14,23 +14,21 @@ class IndividualEventController extends Controller
     public function index()
     {
 
-        $preg = \App\individual_events::select('Parti_id')->where('isPresent','=','0')->get();
-        
+        $preg = \DB::table('EVT1')->select('Parti_id')->where('IsPresent','=','0')->get();
+
         $participants = participant::find($preg);
-        
+
         return view('events.participant.index',compact('participants'));
-        
-            
     }
-    
+
 
 
 	public function store(Request $request)
     {
 
-        $list = $request->get("isPresent");
+        $list = $request->get("IsPresent");
 
-        \App\individual_events::whereIn('Parti_id',$list)->update(['IsPresent' => '1']);
+        \App\EVT1::whereIn('Parti_id',$list)->update(['IsPresent' => '1']);
 
         return redirect('/events/presentparticipants');
     }
@@ -38,31 +36,27 @@ class IndividualEventController extends Controller
 
     public function indexpresent()
     {
-        
-        $preg = \App\individual_events::select('TeamId','Parti_id')->orderBy('TeamId','asc')->where('isPresent','=','1')->get();
+
+        $preg = \DB::table('EVT1')->select('TeamId','Parti_id')->orderBy('TeamId','asc')->where('IsPresent','=','1')->get();
         $presents = participant::find($preg);
         return view('events.presentparticipant.index',compact('presents','preg'));
-        
+
     }
 
     public function indexschedule()
     {
 
-        
         $schedule = \App\event::orderBy('id','ASC')->get();
         return view('events.schedule.index',compact('schedule'));
-        
+
     }
 
     public function indexvolunteer()
     {
 
-        
         $volunteers = volunteer::orderBy('id','DESC')->get();
         return view('events.volunteer.index',compact('volunteers'));
-        
+
     }
 
 }
-
-

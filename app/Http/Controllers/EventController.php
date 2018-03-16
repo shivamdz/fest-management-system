@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Admin\event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
@@ -88,15 +87,17 @@ class EventController extends Controller
           'Path' => '/admin-assets/img/events/'.$path
         ]);
 
-        $event->save();
 
         Schema::create('EVT'.$lastId, function($table){
-        $table->integer('PartiId');
-        $table->integer('Result')->nullable();
+        $table->integer('Parti_id')->unsigned();
+        $table->integer('Result')->default(0);
         $table->integer('TeamId');
         $table->boolean('IsPresent')->nullable();
-        $table->foreign('PartiId')->references('id')->on('participants');
+        $table->foreign('Parti_id')->references('id')->on('participants');
       });
+
+        $event->save();
+
 
         Session::flash('success_msg','Event Added Successfully');
 
@@ -184,7 +185,7 @@ class EventController extends Controller
     {
         // echo '<script>alert("$eventData")</script>';
         $event = event::find($id);
-        DB::statement('drop table '.$event->EventName);
+        \DB::statement('DROP TABLE '.$event->EventId);
         $event->delete();
 
         Session::flash('success_msg','Event Deleted Successfully');

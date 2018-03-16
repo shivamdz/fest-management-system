@@ -26,8 +26,6 @@ class CreateUsrsTable extends Migration
             $table->integer('Role_id')->unsigned();
             $table->foreign('Role_id')->references('id')->on('roles');
         });
-
-
     }
 
     /**
