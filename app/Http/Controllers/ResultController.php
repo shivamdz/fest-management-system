@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\event;
+use App\Admin\event;
 use App\result;
 use App\individual_event;
 use Illuminate\Http\Request;
@@ -28,6 +28,6 @@ class ResultController extends Controller
 
     public function indexoverall()
     {
-        
+
     }
 }
