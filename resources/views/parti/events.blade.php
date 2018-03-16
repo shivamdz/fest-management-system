@@ -213,7 +213,6 @@ function deselect(ele)
 {
   let id = ele.id;
   let cb = document.getElementById(id).options.selectedIndex;
-  console.log("deselect : "+cb);
   previd = cb;
 
 }
@@ -227,7 +226,6 @@ function update(ele)
   // alert(id);
   let className = id.substring(0, id.indexOf('['));
   let cb = document.getElementById(id).options.selectedIndex;
-  console.log("update :"+cb);
     // document.getElementById("EVT1[1][2]").options[2].disabled;
 
     // $("select#EVT1[1][2] option").prop('disabled', false).filter("#1").prop('disabled', true);
@@ -248,11 +246,8 @@ function update(ele)
        {
         //  alert("{{$list->EventId}}["+i+"]["+j+"]");
           let curid = "{{$list->EventId}}["+i+"]["+j+"]";
-          console.log(curid);
-          console.log(id);
           if(curid != id)
           {
-            console.log("#"+cb);
             var $dropdown = $("select[id='"+curid+"']");
 
             $dropdown.find('option[id="'+previd+'"]').prop("disabled", false);
@@ -261,9 +256,6 @@ function update(ele)
 
 
 
-          //  $("select#"+curid+" option").prop('disabled', false).filter("#"+cb).prop('disabled', true);
-          // $("select#"+curid+" option").removeAttr('disabled').filter( "[value='"+cb+"']" ).attr('disabled');
-          // document.getElementById(curid).options[1].disabled;
           }
        }
      }
@@ -277,78 +269,6 @@ function update(ele)
 
 
 
-function validate()
-{
-  // $('input[name^="EVT"]:').each(function() {
-  //   // alert($(this).val());
-  //   console.log($(this).val());
-  // });
-// alert(document.getElementById("EVT1").elements[1][1].value);
-// alert($("input[name=EVT1[1][1]:checked").val());
-// console.log($("input[name=EVT1[1][1]:checked").val());
-console.log("something");
-// var inp = document.getElementsByName('hidd');
-// console.log(inp.value);
-
-// var inps = document.getElementsByName('EVT3[][]');
-//
-// for(i = 1;i<inps.length();i++)
-// {
-//   // console.log(inps[i][i]);
-// }
-
-
-// var obj = $("[name^=EVT]");
-
-// var arr = $.makeArray( obj );
-
-// for(let item of arr)
-// {
-  // console.log(arr[0].options[arr[0].selectedIndex].text());
-  //  console.log(tem.options[item.selectedIndex].text());
-
-// }
-
-// Array.prototype.forEach.call(obj, function(el) {
-
-@foreach($lists as $list)
-
-@php ($MTeam = $list->MaxTeam)
-@php ($MParti = $list->MaxParti)
-// console.log("{{$MTeam}}");
-// console.log("{{$MParti}}");
-   for(i = 1; i <= {{$MTeam}} ; i++)
-   {
-     for(j = 1; j <= {{$MParti}} ; j++)
-     {
-      //  alert("{{$list->EventId}}["+i+"]["+j+"]");
-        let cbo = document.getElementById("{{$list->EventId}}["+i+"]["+j+"]").options.selectedIndex;
-        console.log(cbo);
-      //  alert(cbo);
-     }
-   }
-@endforeach
-
-// });
-
-
-
-
-// for (var i = 0; i <inps.length; i++) {
-// var inp=inps[1][1];
-    // console.log("pnamvalue="+inps);
-// }
-
-
-// console.log($("#sel"));
-// console.log("something");
-// console.log($("select#EVT1[1][2] option:checked").val());
-// console.log($("input[name=EVT1[1][2]").val());
-// console.log($("input[name=EVT1[2][1]:checked").val());
-// console.log($("input[name=EVT1[2][2]").val());
-// alert($('#hid').val());
-
-}
 
 </script>
 
