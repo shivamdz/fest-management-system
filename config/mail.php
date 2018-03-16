@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => 'mailgun',
 
     /*
     |--------------------------------------------------------------------------
@@ -119,5 +119,6 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+    
 
 ];

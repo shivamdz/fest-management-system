@@ -36,3 +36,22 @@ Route::get('/admin/eventHead', function () {
 Route::get('/admin/college', function () {
     return view('admin.college');
 });
+
+Route::get('/events',function() {
+  return view ('events.layout.main');
+});
+
+Route::get('/results',function() {
+  return view ('results.layout.main');
+});
+
+
+Route::resource('/results/eventresults','ResultController');
+Route::get('/events/volunteers','IndividualEventController@indexvolunteer');
+Route::resource('/events/participants','IndividualEventController');
+Route::get('/events/schedule','IndividualEventController@indexschedule');
+Route::get('/events/presentparticipants','IndividualEventController@indexpresent');
+
+
+
+
