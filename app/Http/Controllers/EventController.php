@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\event;
+
+use App\Admin\event;
 use Illuminate\Http\Request;
 use Session;
 
@@ -76,9 +77,8 @@ class EventController extends Controller
           'EventId' => 'EVT'.$lastId,
           'EventName' => $request->get('EventName'),
           'EventDesc' => $request->get('EventDesc'),
-          'EventDate' => $request->get('EventDate'),
-          'EventStartTime' => $request->get('EventStartTime'),
-          'EventEndTime' => $request->get('EventEndTime'),
+          'EventStartDate' => $request->get('EventStartTime'),
+          'EventEndDate' => $request->get('EventEndTime'),
           'EventVenue' => $request->get('EventVenue'),
           'Rules' => $request->get('Rules'),
           'MaxTeam' => $request->get('MaxTeam'),
@@ -99,7 +99,7 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\event  $events
+     * @param  \App\Admin\event  $events
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -112,7 +112,7 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\event $event
+     * @param  \App\Admin\event $event
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -128,7 +128,7 @@ class EventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\event  $event
+     * @param  \App\Admin\event  $event
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -145,9 +145,8 @@ class EventController extends Controller
 
         $event->EventName = $request->get('EventName');
         $event->EventDesc = $request->get('EventDesc');
-        $event->EventDate = $request->get('EventDate');
-        $event->EventStartTime = $request->get('EventStartTime');
-        $event->EventEndTime = $request->get('EventEndTime');
+        $event->EventStartDate = $request->get('EventStartDate');
+        $event->EventEndDate = $request->get('EventEndDate');
         $event->EventVenue = $request->get('EventVenue');
         $event->Rules = $request->get('Rules');
         $event->MaxTeam = $request->get('MaxTeam');
@@ -169,7 +168,7 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\event  $event
+     * @param  \App\Admin\event  $event
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
