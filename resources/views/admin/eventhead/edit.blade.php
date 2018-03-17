@@ -41,7 +41,7 @@
                                  <div class="col-md-12">
                                      <div class="form-group">
                                          <label>Contact No : </label>
-                                         <input type="number" name="Contact" class="form-control border-input" placeholder="Head Contact No" value="{{$head->HeadNo}}" required>
+                                         <input type="text" name="Contact" class="form-control border-input" placeholder="Head Contact No" value="{{$head->HeadNo}}" maxlength="10" title="Please enter correct Mobile no." required>
                                      </div>
                                  </div>
                                </div>
@@ -52,9 +52,9 @@
                                      <br>
                                      <!-- <input type="string" name="EventId" class="form-control border-input" placeholder="Select Event " value="{{$head->EventId}}"> -->
                                      <select class="col-md-12" name="EventId">
-                                     <option value="non" >Unassign</option>
+                                     <option value="0" >Unassign</option>
                                      @foreach( $eventlists as $eventlist)
-                                     <option value="{{$eventlist->EventId}}">{{$eventlist->EventName}}</option>
+                                     <option value="{{$eventlist->id}}">{{$eventlist->EventName}}</option>
                                      @endforeach
                                      </select>
                                    </div>

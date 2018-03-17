@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin\fest_info;
+use App\Admin\fest;
 use Illuminate\Http\Request;
 use Session;
 
@@ -16,8 +16,8 @@ class FestController extends Controller
     public function index()
     {
         //
-        $festinfo = fest_info::first();
-        // $count = fest_info::count();
+        $festinfo = fest::first();
+        // $count = fest::count();
         return view('admin.festsetup.index',compact('festinfo'));
     }
 
@@ -49,7 +49,7 @@ class FestController extends Controller
 
 
 
-        $festinfo= new fest_info([
+        $festinfo= new fest([
 
         'FestName' => $request->get('FestName'),
         'FestInfo' => $request->get('FestDesc'),
@@ -71,10 +71,10 @@ class FestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin\fest_info  $fest_info
+     * @param  \App\Admin\fest  $fest
      * @return \Illuminate\Http\Response
      */
-    public function show(fest_info $fest_info)
+    public function show(fest $fest)
     {
         //
     }
@@ -82,13 +82,13 @@ class FestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\fest_info  $fest_info
+     * @param  \App\fest  $fest
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
-        $festinfo = fest_info::find($id);
+        $festinfo = fest::find($id);
         return view('admin.festsetup.edit',compact('festinfo'));
     }
 
@@ -96,13 +96,13 @@ class FestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin\fest_info  $fest_info
+     * @param  \App\Admin\fest  $fest
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
-        $festinfo = fest_info::find($id);
+        $festinfo = fest::find($id);
 
         $image = $request->file('image');
         $path = time().'.'.$image->getClientOriginalExtension();
@@ -110,9 +110,9 @@ class FestController extends Controller
         $image->move($destinationPath,$path);
 
           $festinfo->FestName = $request->get('FestName');
-          $festinfo->FestDesc = $request->get('FestDesc');
-          $festinfo->OrganizedBy = $request->get('OrganizedBy');
-          $festinfo->TotalStudent = $request->get('Max');
+          $festinfo->FestInfo = $request->get('FestDesc');
+          $festinfo->FestOrg = $request->get('OrganizedBy');
+          $festinfo->Total = $request->get('Max');
 
           $festinfo->FestLogo = '/admin-assets/img/'.$path;
 
@@ -129,10 +129,10 @@ class FestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin\fest_info  $fest_info
+     * @param  \App\Admin\fest  $fest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(fest_info $fest_info)
+    public function destroy(fest $fest)
     {
         //
     }

@@ -67,11 +67,12 @@ Route::resource('/admin/event','EventController');
 Route::resource('/admin/festsetup','FestController');
 Route::resource('/admin/eventhead','EventHeadController');
 Route::resource('/admin/college','CollegeController');
+// Route::get('/admin/college','CollegeController@index');
 
+// Route::get('/admin/college', function () {
+//     return view('admin.college');
+// });
 
-Route::get('/admin/college', function () {
-    return view('admin.college');
-});
 
 Route::get('/events',function() {
   return view ('events.layout.main');
@@ -87,3 +88,4 @@ Route::get('/events/volunteers','IndividualEventController@indexvolunteer');
 Route::resource('/events/participants','IndividualEventController');
 Route::get('/events/schedule','IndividualEventController@indexschedule');
 Route::get('/events/presentparticipants','IndividualEventController@indexpresent');
+Route::post('/events/presentparticipants','IndividualEventController@updateresult');

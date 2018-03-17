@@ -92,7 +92,7 @@ class EventController extends Controller
         $table->integer('Parti_id')->unsigned();
         $table->integer('Result')->default(0);
         $table->integer('TeamId');
-        $table->boolean('IsPresent')->nullable();
+        $table->boolean('IsPresent')->default(0);
         $table->foreign('Parti_id')->references('id')->on('participants');
       });
 

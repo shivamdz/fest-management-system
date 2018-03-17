@@ -16,7 +16,9 @@ class EventHeadController extends Controller
     {
         //
         $heads = event_head::orderBy('id','DESC')->get();
-        return view('admin.eventhead.index',compact('heads'));
+        // dd($heads[0][4]);
+        // $headname = \App\Admin\event::find($heads[0][EventId])->select('EventName')->first();
+        return view('admin.eventhead.index',compact('heads','headname'));
 
     }
 
@@ -52,13 +54,13 @@ class EventHeadController extends Controller
           $lastId = event_head::select('id')->orderBy('id','desc')->first()->id;
           $lastId +=1;
         }
-
+        // dd($request->get('EventId'));
        $head = new event_head([
          'HeadId' => 'H'.$lastId,
          'HeadName' => $request->get('Name'),
          'HeadEmail' => $request->get('Email'),
          'HeadNo' => $request->get('Contact'),
-         'Event_Id' => $request->get('EventId'),
+         'Event_id' => $request->get('EventId')
        ]);
 
        $head->save();
@@ -113,7 +115,7 @@ class EventHeadController extends Controller
         $head->HeadName = $request->get('Name');
         $head->HeadEmail = $request->get('Email');
         $head->HeadNo = $request->get('Contact');
-        $head->Event_Id = $request->get('EventId');
+        $head->Event_id = $request->get('EventId');
 
         $head->save();
 

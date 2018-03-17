@@ -132,7 +132,7 @@ class CollegeController extends Controller
      * @param  \App\Admin\college  $college
      * @return \Illuminate\Http\Response
      */
-    public function destroy(college $college)
+    public function destroy($id)
     {
         //
         $college = college::find($id)->delete();

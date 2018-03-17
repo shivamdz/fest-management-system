@@ -27,11 +27,12 @@ class CreateEventsTable extends Migration
             $table->string('Pass');
             $table->string('Path')->nullable();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
 
         Schema::table('events', function (Blueprint $table) {
-            $table->integer('Fest_id')->unsigned();
-            $table->foreign('Fest_id')->references('id')->on('fest');
+            $table->integer('Fest_id')->unsigned()->nullable();
+            $table->foreign('Fest_id')->references('id')->on('fests');
         });
     }
 

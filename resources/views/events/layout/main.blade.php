@@ -79,7 +79,7 @@
 					</a>
 				</li>
 
-                <li {{{ (Request::is('/events/schedule') ? 'class=active' : '') }}}{{{ (Request::is('events/schedule') ? 'class=active' : '') }}} >
+                <!-- <li {{{ (Request::is('/events/schedule') ? 'class=active' : '') }}}{{{ (Request::is('events/schedule') ? 'class=active' : '') }}} >
 					<a href="{{{url('events/schedule')}}}">
 						<i class="ti-pie-chart"></i>
 						<p>SCHEDULE</p>
@@ -91,7 +91,7 @@
 						<i class="ti-pie-chart"></i>
 						<p>RESULT</p>
 					</a>
-				</li>
+				</li> -->
             </ul>
     	</div>
  </div>
