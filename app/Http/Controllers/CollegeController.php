@@ -142,15 +142,5 @@ class CollegeController extends Controller
 
     }
 
-    public function indexreception()
-    {
-        //
-        $colleges = college::orderBy('id','ASC')->where('FeeStatus','=','0')->where('RegStatus','=','0')->get();
-        return view('reception.status.index',compact('colleges'));
-
-    }
-
-    
-
 
 }
