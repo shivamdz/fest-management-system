@@ -22,8 +22,8 @@ class CreateCollegesTable extends Migration
             $table->string('CRepName')->nullable();
             $table->bigInteger('CNo')->nullable();
             $table->string('CEmail')->nullable();
-            $table->boolean('FeeStatus')->nullable();
-            $table->boolean('RegStatus')->nullable();
+            $table->string('Comment')->default('none');
+            $table->boolean('FeeStatus')->default(0);
             $table->integer('CTotal')->default(0);
             $table->timestamps();
         });

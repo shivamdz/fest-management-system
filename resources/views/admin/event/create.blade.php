@@ -22,13 +22,13 @@
                                      <div class="col-md-6">
                                          <div class="form-group">
                                              <label>Event Name</label>
-                                             <input type="text" name="EventName" class="form-control border-input" placeholder="Event Name" value="" >
+                                             <input type="text" name="EventName" class="form-control border-input" placeholder="Event Name" value="" required>
                                          </div>
                                      </div>
                                      <div class="col-md-6">
                                          <div class="form-group">
                                              <label>Event Password</label>
-                                             <input type="text" name="Pass" class="form-control border-input" placeholder="Password" value="" >
+                                             <input type="text" name="Pass" class="form-control border-input" placeholder="Password" value="" required>
                                            </div>
                                      </div>
                                  </div>
@@ -88,7 +88,7 @@
                                   <div class="col-md-4">
                                     <div class="form-group">
                                     <label>Event Logo/Image</label>
-                                    <input type="file" name="image" class="form-control border-input" placeholder="Upload Event logo here" accept="image/*" value="">
+                                    <input type="file" name="image" class="form-control border-input" placeholder="Upload Event logo here" accept="image/*" value="" required>
                                     </div>
                                   </div>
                                  </div>

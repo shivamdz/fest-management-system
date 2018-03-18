@@ -40,7 +40,7 @@
                                    <div class="col-md-12">
                                        <div class="form-group">
                                            <label id="labelhcolor" >Contact No : </label>
-                                           <input id="labeltcolor" type="number" name="Contact" class="form-control border-input" placeholder="Head Contact No" value="" required>
+                                           <input id="labeltcolor" type="text" name="Contact" class="form-control border-input" placeholder="Head Contact No" maxlength="10" pattern="^[1-9]\d{9}$" title="Please enter correct Mobile no." required>
                                        </div>
                                    </div>
                                  </div>
@@ -50,19 +50,21 @@
                                        <label>Assign Event :</label>
                                        <br>
 
-                                       <select class="col-md-12" name="EventId">
-                                       <option value="non" >Unassign</option>
+                                       <select class="col-md-12" name="EventId" required>
+                                       <option value="0" >Unassign</option>
                                        @foreach( $eventlists as $eventlist)
-                                       <option value="{{$eventlist->EventId}}">{{$eventlist->EventName}}</option>
+                                       <option value="{{$eventlist->id}}">{{$eventlist->EventName}}</option>
                                        @endforeach
 
                                        </select>
                                      </div>
                                   </div>
                               </div>
+                              <br>
                                  <div class="text-center">
                                      <button type="submit" class="btn btn-info btn-fill btn-wd">Submit</button>
                                  </div>
+
                                  <div class="clearfix"></div>
                              </form>
                          </div>

@@ -308,11 +308,6 @@ class RegController extends Controller
 
 
 
-
-
-
-
-
         // Insert Participants Details
 
         for($i=1;$i<=sizeof($names);$i++)
@@ -329,7 +324,7 @@ class RegController extends Controller
         }
 
         $parti = new \App\Admin\participants([
-          'Parti_id' => 'P'.$lastId,
+          'PartiId' => 'P'.$lastId,
           'PartiName' => $names[$i],
           'PartiNo' => $contacts[$i],
           'PartiEmail' => $emails[$i],
@@ -371,14 +366,7 @@ class RegController extends Controller
      for($i = 1; $i <= $MTeam ; $i++)
        {
 
-         $cTeam = \DB::table($list->EventId)
-                   ->join('participants',$list->EventId.'.Parti_id', '=' ,'participants.id')
-                   ->where('participants.Col_id','=',$id)
-                   ->distinct('TeamId')->count('TeamId');
-
-                          // ->orderBy($list->EventId.'.TeamId','desc')
-// ->select($list->EventId.'.TeamId')
-  //  SELECT EVT3.TeamId FROM EVT3 INNER JOIN participants ON EVT3.Parti_id=participants.id WHERE participants.Col_id = 1 ORDER BY EVT3.TeamId DESC
+         $cTeam = \DB::table($list->EventId)->distinct('TeamId')->count('TeamId');
 
 
              for($j = 1; $j <= $MParti ; $j++)
@@ -394,7 +382,6 @@ class RegController extends Controller
                     \DB::table($list->EventId)->insert(
                       ['Parti_id' => $tempid , 'TeamId' => $cTeam+1]
                     );
-
                }
               }
            }

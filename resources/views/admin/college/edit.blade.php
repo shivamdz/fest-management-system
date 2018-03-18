@@ -74,6 +74,7 @@
                              <div class="text-center">
                                  <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
                              </div>
+                             <br>
                              <div class="clearfix"></div>
                          </form>
 

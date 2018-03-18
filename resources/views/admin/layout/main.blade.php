@@ -92,6 +92,12 @@
 												<p>COLLEGES</p>
 										</a>
 								</li>
+								<li {{{ (Request::is('admin/participant') ? 'class=active' : '') }}}  {{{ (Request::is('admin/participant/*') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/participant')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>PARTICIPANTS</p>
+										</a>
+								</li>
             </ul>
     	</div>
  </div>
@@ -109,7 +115,7 @@
                     <a class="navbar-brand">@yield('heading')</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" >
                         <!-- <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="ti-panel"></i>

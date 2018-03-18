@@ -23,7 +23,7 @@ class CreateEventHeadsTable extends Migration
         });
 
         Schema::table('event_heads', function (Blueprint $table) {
-        $table->integer('Event_id')->unsigned();
+        $table->integer('Event_id')->nullable()->unsigned();
         $table->foreign('Event_id')->references('id')->on('events');
         });
     }

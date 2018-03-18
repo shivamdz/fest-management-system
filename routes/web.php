@@ -67,11 +67,28 @@ Route::resource('/admin/event','EventController');
 Route::resource('/admin/festsetup','FestController');
 Route::resource('/admin/eventhead','EventHeadController');
 Route::resource('/admin/college','CollegeController');
+Route::resource('/admin/participant','AdminParticipantsController');
+
+Route::get('/admin/participant/status/{id}','AdminParticipantsController@status');
+Route::get('/admin/participant/create/{id}','AdminParticipantsController@add');
+Route::get('/admin/participant/event/{id}','AdminParticipantsController@event');
+Route::post('/admin/participant/event/{id}','AdminParticipantsController@updateinfo');
+Route::post('/admin/participant/status/{id}','AdminParticipantsController@statusstore');
+
+// Route::post('/admin/participant','AdminParticipantsController@add');
+
+// Route::get('/admin/participant','AdminParticipantsController@index');
+// Route::post('/fest/events','RegController@getEventList');
 
 
-Route::get('/admin/college', function () {
-    return view('admin.college');
-});
+
+
+// Route::get('/admin/college','CollegeController@index');
+
+// Route::get('/admin/college', function () {
+//     return view('admin.college');
+// });
+
 
 Route::get('/events',function() {
   return view ('events.layout.main');
@@ -87,5 +104,14 @@ Route::get('/events/volunteers','IndividualEventController@indexvolunteer');
 Route::resource('/events/participants','IndividualEventController');
 Route::get('/events/schedule','IndividualEventController@indexschedule');
 Route::get('/events/presentparticipants','IndividualEventController@indexpresent');
+
 Route::get('/results/collegeresult','ResultController@indexoverall');
 Route::get('/events/result','ResultController@indexresult');
+
+
+
+
+
+
+Route::post('/events/presentparticipants','IndividualEventController@updateresult');
+

@@ -44,7 +44,7 @@
                                               <div>{{$head->HeadName}}</div>
                                           </td>
                                               <td class="table-text">
-                                              <div>{{$head->Event_Id}}</div>
+                                              <div>{{$head->Event_id}}</div>
                                           </td>
                                           <td>
 
