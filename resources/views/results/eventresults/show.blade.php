@@ -38,27 +38,28 @@ font-style:italic;
 
                                   <!-- Table B}}ody -->
                                   <tbody>
-                                dd{{$preg}};
-                                @foreach($preg as $key => $pregs)
-                                @php(print_r($pregs))
-                                 @foreach($pregs as $k => $v)
-                                 <!-- @php(print_r($v)) -->
+                                    
+                                        
+                                  
+                                 @foreach($left as $lefts)
+                                  @if($lefts->Result !=0)
                                  <tr>
                                     <td class="table-text">
                                              
-                                        <div {{$v}}</div>
+                                        <div > {{$lefts->TeamId}} </div>
                                     </td>
                                          
                                     <td class="table-text">
                                              
-                                        <div {{$v}}</div>
+                                        <div >{{$lefts->id}} </div>
                                     </td>
                                     <td class="table-text">
                                              
-                                        <div {{$v}}</div>
+                                        <div >{{$lefts->Result}} </div>
                                     </td>
                                  </tr>
-                                @endforeach
+                                </tbody>
+                                @endif
                                 @endforeach
                                  </div></table>
                                      </form>

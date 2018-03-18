@@ -1,7 +1,7 @@
-@extends('events.layout.main')
+@extends('results.layout.main')
 
 @section('heading')
-<div class="title">Volunteer List</div>
+<div class="title">Overall Result</div>
 @endsection
 
 @section('content')
@@ -22,17 +22,19 @@
                                   </thead>
 
                                   <!-- Table Body -->
-                                  <tbody>
-                                  @foreach($scores as $score)
+                                  
+                                    @foreach($left as $lefts)
                                       <tr>
                                           <td class="table-text">
-                                              <div>{{$score->College}}</div>
+                                              <div>{{$lefts->CName}}</div>
                                           </td>
+
                                           <td class="table-text">
-                                              <div>{{$score->Score}}</div>
+                                              <div>{{$lefts->TScore}}</div>
                                           </td>
 
                                       </tr>
+                                      
                                   @endforeach
                                 </tbody>
                               </table>

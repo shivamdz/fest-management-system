@@ -87,3 +87,5 @@ Route::get('/events/volunteers','IndividualEventController@indexvolunteer');
 Route::resource('/events/participants','IndividualEventController');
 Route::get('/events/schedule','IndividualEventController@indexschedule');
 Route::get('/events/presentparticipants','IndividualEventController@indexpresent');
+Route::get('/results/collegeresult','ResultController@indexoverall');
+Route::get('/events/result','ResultController@indexresult');

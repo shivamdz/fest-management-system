@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\volunteer;
 use App\participant;
+use App\Admin\event;
 use Illuminate\Http\Request;
 use session;
 
@@ -46,7 +47,7 @@ class IndividualEventController extends Controller
     public function indexschedule()
     {
 
-        $schedule = \App\event::orderBy('id','ASC')->get();
+        $schedule = event::orderBy('id','ASC')->get();
         return view('events.schedule.index',compact('schedule'));
 
     }
