@@ -92,6 +92,12 @@
 												<p>COLLEGES</p>
 										</a>
 								</li>
+								<li {{{ (Request::is('admin/participant') ? 'class=active' : '') }}}  {{{ (Request::is('admin/participant/*') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/participant')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>PARTICIPANTS</p>
+										</a>
+								</li>
             </ul>
     	</div>
  </div>

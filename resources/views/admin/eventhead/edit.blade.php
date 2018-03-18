@@ -41,7 +41,7 @@
                                  <div class="col-md-12">
                                      <div class="form-group">
                                          <label>Contact No : </label>
-                                         <input type="text" name="Contact" class="form-control border-input" placeholder="Head Contact No" value="{{$head->HeadNo}}" maxlength="10" title="Please enter correct Mobile no." required>
+                                         <input type="text" name="Contact" class="form-control border-input" placeholder="Head Contact No" value="{{$head->HeadNo}}" pattern="^[1-9]\d{9}$" maxlength="10" title="Please enter correct Mobile no." required>
                                      </div>
                                  </div>
                                </div>

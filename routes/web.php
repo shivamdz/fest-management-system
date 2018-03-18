@@ -67,6 +67,20 @@ Route::resource('/admin/event','EventController');
 Route::resource('/admin/festsetup','FestController');
 Route::resource('/admin/eventhead','EventHeadController');
 Route::resource('/admin/college','CollegeController');
+Route::resource('/admin/participant','AdminParticipantsController');
+
+Route::get('/admin/participant/create/{id}','AdminParticipantsController@add');
+Route::get('/admin/participant/event/{id}','AdminParticipantsController@event');
+Route::post('/admin/participant/event/{id}','AdminParticipantsController@updateinfo');
+
+// Route::post('/admin/participant','AdminParticipantsController@add');
+
+// Route::get('/admin/participant','AdminParticipantsController@index');
+// Route::post('/fest/events','RegController@getEventList');
+
+
+
+
 // Route::get('/admin/college','CollegeController@index');
 
 // Route::get('/admin/college', function () {
