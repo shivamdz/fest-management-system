@@ -59,7 +59,7 @@
                                               <div>@if($college->FeeStatus === 0){{'Not Paid'}}@else {{'Paid'}} @endif</div>
                                           </td>
                                           <td class="table-text">
-                                           <a class="btn btn-success" href="{{ action('AdminParticipantsController@show',$college['id']) }}">Update</a>
+                                           <a class="btn btn-success" href="{{ action('AdminParticipantsController@status',$college['id']) }}">Update</a>
                                           </td>
                                           <td>
                                             <a class="btn btn-success" href="{{ action('AdminParticipantsController@add',$college['id']) }}">Add</a>

@@ -328,7 +328,7 @@ class AdminParticipantsController extends Controller
               // dd($tempid);
              if($tempid != "0")
              {
-              //  print_r($team[$list->EventId][$p]->TeamId);
+                 //  print_r($team[$list->EventId][$p]->TeamId);
                  if($team[$list->EventId][$p]->TeamId === $i)
                  {
                   $oldid = $team[$list->EventId][$p]->id;
@@ -344,7 +344,7 @@ class AdminParticipantsController extends Controller
                   $p++;
 
                  }
-                 else {
+              else {
 
                      $c = \DB::table($list->EventId)
                            ->select('TeamId')
@@ -362,7 +362,40 @@ class AdminParticipantsController extends Controller
 
     }
 
+    Session::flash('success_msg','participants Modified Successfully');
+
+    return redirect('/admin/participant');
+
+
+
+
   }
+
+
+  public function status($id)
+  {
+    $status =  \App\Admin\college::select('Comment','FeeStatus')->where('id',$id)->first();
+    // dd($status);
+    return view('/admin/participant/status',compact('status','id'));
+  }
+
+    public function statusstore($id,Request $request)
+    {
+    //  dd($request);
+       $fee = 1;
+       if(null == $request->get('fee'))
+       {
+         $fee = 0;
+       }
+        $status = \App\Admin\college::find($id);
+      $status->Comment = $request->get('comment');
+      $status->FeeStatus = $fee;
+
+      $status->save();
+
+      Session::flash('success_msg','College Status Updated Successfully');
+    return redirect('/admin/participant');
+    }
 
     /**
      * Remove the specified resource from storage.
