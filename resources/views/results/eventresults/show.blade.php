@@ -30,8 +30,8 @@ font-style:italic;
                                 <table class="table table-striped">
                                   <thead>
                                       <!-- <th width="15%">Team ID</th> -->
-                                      <th width="15%">TEAM ID</th>
-                                      <th width="20%">Participant ID</th>
+                                      <th width="15%">College Name</th>
+                                      <th width="20%">Participant Name</th>
                                       <th width="20%">Position</th>
                                       
                                   </thead>
@@ -40,27 +40,59 @@ font-style:italic;
                                   <tbody>
                                     
                                         
-                                  
+                                
                                  @foreach($left as $lefts)
-                                  @if($lefts->Result !=0)
+                                  @if($lefts->Result!=0)
                                  <tr>
                                     <td class="table-text">
                                              
-                                        <div > {{$lefts->TeamId}} </div>
+                                        <div > {{$lefts->CName}} </div>
                                     </td>
                                          
                                     <td class="table-text">
                                              
-                                        <div >{{$lefts->id}} </div>
+                                        <div >{{$lefts->PartiName}} </div>
                                     </td>
                                     <td class="table-text">
-                                             
-                                        <div >{{$lefts->Result}} </div>
+
+                                        @if($lefts->Result ==1)    
+                                        <div >{{"FIRST"}} </div>
+                                        @elseif($lefts->Result ==2)    
+                                        <div >{{"SECOND"}} </div>
+                                        @elseif($lefts->Result ==3)    
+                                        <div >{{"THIRD"}} </div>
+                                        
                                     </td>
                                  </tr>
-                                </tbody>
-                                @endif
+                                 @endif
+                                 @endif
                                 @endforeach
+
+                                @foreach($right as $rights)
+                                  @if($rights->Result==0)
+                                 <tr>
+                                    <td class="table-text">
+                                             
+                                        <div > {{$rights->CName}} </div>
+                                    </td>
+                                         
+                                    <td class="table-text">
+                                             
+                                        <div >{{$rights->PartiName}} </div>
+                                    </td>
+                                    <td class="table-text">
+
+                                           
+                                        <div >{{"PARTICIPATION"}} </div>
+                                        
+                                        
+                                    </td>
+                                 </tr>
+                                
+                                 @endif
+                                @endforeach
+                                </tbody>
+                                
                                  </div></table>
                                      </form>
                                </strong>

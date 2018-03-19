@@ -42,11 +42,14 @@
                                   @php($ar=[])
                                   @php($span=[])
 
+
                                   @for($i=0; $i < count($pregs);$i++)
                                    @php($ar[$i]=$pregs[$i]->TeamId)
                                   @endfor
-
+                                
                                   @php($a=(array_count_values($ar)))
+                                
+
 
                                   @php($k=1)
 

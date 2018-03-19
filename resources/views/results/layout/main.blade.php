@@ -52,14 +52,14 @@
 
             <ul class="nav">
                 
-                <li {{{ (Request::is('results/eventresults') ? 'class=active' : '') }}} {{{ (Request::is('/results/eventresults') ? 'class=active' : '') }}} >
+                <li {{{ (Request::is('results/eventresults') ? 'class=active' : '') }}} {{{ (Request::is('/results/eventresults/*') ? 'class=active' : '') }}} >
 										<a href="{{{url('/results/eventresults')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>EVENT RESULTS</p>
 										</a>
 								</li>
                 
-                <li {{{ (Request::is('results/collegeresult') ? 'class=active' : '') }}} {{{ (Request::is('/results/collegeresult') ? 'class=active' : '') }}}>
+                <li {{{ (Request::is('results/collegeresult') ? 'class=active' : '') }}} {{{ (Request::is('/results/collegeresult/*') ? 'class=active' : '') }}}>
 										<a href="{{{url('/results/collegeresult')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>OVERALL RESULT</p>
