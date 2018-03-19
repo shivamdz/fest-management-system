@@ -86,6 +86,12 @@
 												<p>EVENT HEAD</p>
 										</a>
 								</li>
+								<li {{{ (Request::is('admin/volunteer') ? 'class=active' : '') }}}  {{{ (Request::is('admin/volunteer/*') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/volunteer')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>VOLUNTEER</p>
+										</a>
+								</li>
                 <li {{{ (Request::is('admin/college') ? 'class=active' : '') }}}  {{{ (Request::is('admin/college/*') ? 'class=active' : '') }}}>
 										<a href="{{{url('/admin/college')}}}">
 												<i class="ti-pie-chart"></i>
@@ -96,6 +102,12 @@
 										<a href="{{{url('/admin/participant')}}}">
 												<i class="ti-pie-chart"></i>
 												<p>PARTICIPANTS</p>
+										</a>
+								</li>
+								<li {{{ (Request::is('admin/notify') ? 'class=active' : '') }}}  {{{ (Request::is('admin/notify/*') ? 'class=active' : '') }}}>
+										<a href="{{{url('/admin/notify')}}}">
+												<i class="ti-pie-chart"></i>
+												<p>NOTIFY</p>
 										</a>
 								</li>
             </ul>

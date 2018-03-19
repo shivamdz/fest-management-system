@@ -68,6 +68,7 @@ Route::resource('/admin/festsetup','FestController');
 Route::resource('/admin/eventhead','EventHeadController');
 Route::resource('/admin/college','CollegeController');
 Route::resource('/admin/participant','AdminParticipantsController');
+Route::resource('/admin/notify','NotifyController');
 
 Route::get('/admin/participant/status/{id}','AdminParticipantsController@status');
 Route::get('/admin/participant/create/{id}','AdminParticipantsController@add');
@@ -114,4 +115,3 @@ Route::get('/events/result','ResultController@indexresult');
 
 
 Route::post('/events/presentparticipants','IndividualEventController@updateresult');
-
