@@ -15,10 +15,11 @@ class EventHeadController extends Controller
     public function index()
     {
         //
-        $heads = event_head::orderBy('id','DESC')->get();
+        // $heads = event_head::orderBy('id','DESC')->get();
         // dd($heads[0][4]);
         // $headname = \App\Admin\event::find($heads[0][EventId])->select('EventName')->first();
-        return view('admin.eventhead.index',compact('heads','headname'));
+        $left=\DB::table('event_heads')->leftjoin('events','Event_id','=','events.id')->orderBy('event_heads.id','DESC')->get();
+        return view('admin.eventhead.index',compact('left'));
 
     }
 

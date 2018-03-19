@@ -66,6 +66,7 @@ Route::post('/fest/final','RegController@store');
 Route::resource('/admin/event','EventController');
 Route::resource('/admin/festsetup','FestController');
 Route::resource('/admin/eventhead','EventHeadController');
+Route::resource('/admin/volunteer','VolunteerController');
 Route::resource('/admin/college','CollegeController');
 Route::resource('/admin/participant','AdminParticipantsController');
 Route::resource('/admin/notify','NotifyController');

@@ -1,7 +1,7 @@
 @extends('admin.layout.main')
 
 @section('heading')
-<div class="title">Event Head List</div>
+<div class="title">Volunteer List</div>
 @endsection
 
 @section('content')
@@ -21,44 +21,42 @@
                             <div class="header">
                               <!-- <h3 class="title">Event List</h3> -->
                               <div class="pull-right">
-                                <a class="btn btn-success" href="{{ action('EventHeadController@create')}}"> Add New Event Head</a>
+                                <a class="btn btn-success" href="{{ action('VolunteerController@create')}}"> Add New Volunteer</a>
                               </div>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-striped">
                                   <thead>
-                                      <th width="20%">Head ID</th>
-                                      <th width="25%">Head Name</th>
+                                      <th width="20%">Volunteer ID</th>
+                                      <th width="25%">Volunteer Name</th>
                                       <th width="25%">Event Assigned</th>
                                       <th width="30%"></th>
                                   </thead>
 
                                   <!-- Table Body -->
                                   <tbody>
-                                  @php($i=1)
                                   @foreach($left as $lefts)
                                       <tr>
                                           <td class="table-text">
-                                              <div>{{$lefts->HeadId}}</div>
+                                              <div>{{$lefts->VolId}}</div>
                                           </td>
                                           <td class="table-text">
-                                              <div>{{$lefts->HeadName}}</div>
+                                              <div>{{$lefts->VolName}}</div>
                                           </td>
                                               <td class="table-text">
                                               <div>{{$lefts->EventName}}</div>
                                           </td>
                                           <td>
 
-                                            <a class="btn btn-info" href="{{ action('EventHeadController@show',$lefts->id) }}">More</a>
-                                            <a class="btn btn-warning" href="{{ action('EventHeadController@edit',$lefts->id)}}">Edit</a>
-                                             <form style="display:inline" action="{{action('EventHeadController@destroy', $lefts->id)}}" method="POST">
+                                            <a class="btn btn-info" href="{{ action('VolunteerController@show',$lefts->id) }}">More</a>
+                                            <a class="btn btn-warning" href="{{ action('VolunteerController@edit',$lefts->id)}}">Edit</a>
+                                             <form style="display:inline" action="{{action('VolunteerController@destroy', $lefts->id)}}" method="POST">
                                                    {{csrf_field()}}
                                                    {{ method_field('DELETE') }}
                                                    <button class="btn btn-danger" onclick="return confirm('Are you sure to delete?')" type="submit">Delete</button>
                                              </form>
                                           </td>
                                       </tr>
-                                      @php($i++)
                                   @endforeach
                                 </tbody>
                               </table>
