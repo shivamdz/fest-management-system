@@ -11,9 +11,10 @@ class WelcomeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-     protected $sub;
-     protected $msg;
-     protected $name;
+    protected $sub;
+    protected $msg;
+    protected $name;
+
 
 
     /**
@@ -23,11 +24,10 @@ class WelcomeMail extends Mailable
      */
     public function __construct($name,$msg,$sub)
     {
+        //
         $this->name = $name;
         $this->msg = $msg;
         $this->sub = $sub;
-        // dd($sub);
-
     }
 
     /**
@@ -37,12 +37,12 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        // dd($this->sub);
-        return $this->view('admin.notify.mail.email')
-                    ->subject($this->sub)
-                    ->with([
-                      'msg' => $this->msg,
-                      'name' => $this->name
-                    ]);
+
+      return $this->view('admin.notify.mail.email')
+                  ->subject($this->sub)
+                  ->with([
+                    'msg' => $this->msg,
+                    'name' => $this->name
+                  ]);
     }
 }
